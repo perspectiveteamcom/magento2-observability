@@ -17,7 +17,7 @@
 
 ## Встановлення
 
-Команди виконуйте в корені Magento під тим самим PHP, що й застосунок. У Warden запускайте їх через `warden env exec -T php-fpm`; у Docker/Kubernetes використовуйте PHP-контейнер збірки. Не змінюйте файли робочого `vendor` вручну.
+Команди виконуйте в корені Magento під тим самим PHP, що й застосунок. У Warden запускайте їх через `warden env exec -T php-fpm`; у Docker/Kubernetes використовуйте PHP-контейнер збірки. Не змінюйте файли робочого `vendor` вручну. Для команди зі змінною оточення синтаксис Warden такий: `warden env exec -T php-fpm env OTEL_PHP_AUTOLOAD_ENABLED=false composer require ...`.
 
 Composer читає VCS-репозиторії лише з кореневого `composer.json`. Додайте їх командами нижче; вони зберігають решту репозиторіїв магазину.
 
