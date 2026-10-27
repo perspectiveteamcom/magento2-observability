@@ -1,0 +1,21 @@
+<?php
+/** @var \Perspective\Observability\Block\Browser $block */
+try {
+    $config = $block->getBrowserConfig();
+    if ($config === '') {
+        return;
+    }
+    $attributes = [
+        'src' => $block->getViewFileUrl('Perspective_Observability::js/rum.js'),
+        'defer' => 'defer',
+        'data-observability-config' => $config,
+    ];
+    $html = isset($secureRenderer)
+        ? $secureRenderer->renderTag('script', $attributes, '', false)
+        : '<script src="' . $block->escapeUrl($attributes['src']) . '" defer="defer" data-observability-config="'
+            . $block->escapeHtmlAttr($attributes['data-observability-config']) . '"></script>';
+} catch (\Throwable $error) {
+    // Render atomically: configuration, assets or CSP errors must not break the page.
+    return;
+}
+echo /* @noEscape */ $html;

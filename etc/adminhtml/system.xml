@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system><section id="observability" translate="label" sortOrder="950" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Observability</label><tab>advanced</tab><resource>Magento_Config::config</resource>
+        <group id="browser" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Browser monitoring</label>
+            <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Enable Web Vitals and error counts</label><source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+            <field id="sample_rate" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Page sampling ratio</label><comment>0 to 1; 0.1 samples approximately ten percent of page loads.</comment><validate>validate-number validate-zero-or-greater</validate>
+            </field>
+            <field id="require_consent" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Require the site's consent signal</label><comment>Set window.perspectiveObservabilityConsent=true through your consent manager before initialization. DNT and GPC are always honored.</comment><source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+        </group>
+    </section></system>
+</config>

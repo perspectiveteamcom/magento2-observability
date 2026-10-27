@@ -1,0 +1,28 @@
+{
+  "name": "perspective/module-observability",
+  "description": "Optional browser measurements for Magento 2",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "^103.0",
+    "magento/module-config": "^101.0",
+    "magento/module-store": "^101.0",
+    "php": ">=7.4 <8.6"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Perspective\\Observability\\": ""
+    }
+  },
+  "license": "proprietary",
+  "homepage": "https://github.com/perspectiveteamcom/magento2-observability",
+  "support": {
+    "issues": "https://github.com/perspectiveteamcom/magento2-observability/issues",
+    "source": "https://github.com/perspectiveteamcom/magento2-observability"
+  },
+  "suggest": {
+    "perspective/module-observability-otel": "Server telemetry; ^1.0 || ^2.0 selects the PHP-compatible implementation"
+  }
+}
